@@ -10,8 +10,8 @@ refs.form.addEventListener('submit', e => {
 
   const delay = Number(refs.form.delay.value);
   const state = refs.form.state.value;
-  const promis = new Promise((resolve, reject) => {
-    setInterval(() => {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
       if (state === 'fulfilled') {
         resolve(delay);
       } else {
@@ -20,7 +20,7 @@ refs.form.addEventListener('submit', e => {
     }, delay);
   });
 
-  promis
+  promise
     .then(delay => {
       iziToast.success({
         title: 'Ok',
